@@ -361,3 +361,18 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Conway's Game Of Life.sln
+/Assembly-CSharp.csproj
+/UserSettings
+/UIElementsSchema
+/Build
+/ProjectSettings
+/Temp
+/Library
+/Assets/Textures
+/Assets/default.asset
+/Assets/Game'o'life.unity
+/Assets/ui.asset
+/Assets/Scenes
+/Assets/Prefabs
+/Assets/Materials
