@@ -1,4 +1,7 @@
-Simple implementation of Conways Game Of Life
+Simple implementation of Conways Game Of Life, with a few quirks:
+a. When placing or removing Cells, the game pauses
+b. When Cell leaves the screen, it dies -> to increase performance, although it can lead to unwanted behavior if part of a creation leaves the screen
+
 
 **Rules of the game (Taken from wikipedia):**
 
