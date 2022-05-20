@@ -20,12 +20,17 @@ public class Cell : MonoBehaviour
 
     }
     public void CountCells() {
-        
+        if(gameObject == null) {
+            return;
+        }
         aliveNeighbors = CountCellsAround(transform.position);
         //CountCellsAroundNeighbors(gameObject.transform.position);
         
     }
     public void Evolve() {
+        if (gameObject == null) {
+            return;
+        }
         if (aliveNeighbors != 2 && aliveNeighbors != 3) {
             game.KillCell(transform.position);
         } else {
@@ -65,8 +70,6 @@ public class Cell : MonoBehaviour
         
         return neighbors;
     }
-
-    public bool hasBeenCounted = false;
     bool ContainsCell(Vector3 pos) {
         Collider[] colliders = Physics.OverlapSphere(pos, 0.5f);
         foreach (Collider collider in colliders) {
@@ -76,11 +79,20 @@ public class Cell : MonoBehaviour
         }
         return false;
     }
-   
+
+    
     void OnMouseOver() {
         if (Input.GetKeyUp(KeyCode.Q)) {
             UnityEngine.Debug.Log($"{gameObject.name}'s neighbors: {CountCellsAround(transform.position)}");
         }
     }
-    
+    private void FixedUpdate() {
+        if (cellRenderer == null) {
+            cellRenderer = gameObject.GetComponent<MeshRenderer>();
+        }
+        if (!cellRenderer.isVisible) {
+            game.KillCell(transform.position);
+        }
+    }
+
 }
